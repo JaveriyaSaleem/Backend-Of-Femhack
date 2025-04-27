@@ -13,7 +13,7 @@ app.use(
 	cors({
 		origin: ['http://localhost:5174',
 			 'http://localhost:5173',
-			'https://femhack-production.up.railway.app/',
+			'https://femhack-production.up.railway.app/','https://femhack-orpin.vercel.app/'
 			
 			],
 		methods: ['GET', 'PUT', 'POST', 'DELETE'],
