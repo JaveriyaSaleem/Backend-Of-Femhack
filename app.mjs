@@ -10,16 +10,7 @@ import path from "path"
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(
-	cors({
-		origin: ['http://localhost:5174',
-			 'http://localhost:5173',
-			'https://femhack-production.up.railway.app/','https://femhack-orpin.vercel.app/'
-			
-			],
-		methods: ['GET', 'PUT', 'POST', 'DELETE'],
-		credentials: true,
-		allowedHeaders: ['Content-Type', 'Authorization'],
-	}),
+	cors(),
 );
 app.use(express.json())
 app.use('/api/signup', SignupRouter)
