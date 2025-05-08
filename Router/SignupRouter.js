@@ -26,6 +26,9 @@ router.post('/', async (req, res) => {
     if (existingUser) {
         return res.status(400).json({ message: "User already exists. Please log in." });
       }
+      // 👉 Hashing password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
       // token 
       const token = jwt.sign(
         { email: req.body.email },
@@ -36,7 +39,7 @@ router.post('/', async (req, res) => {
     let newUser = await signupModal.create({
       userName: req.body.username,
       email: req.body.email,
-      password:req.body.password,
+      password: hashedPassword, // ⬅️ Save hashed password
       token: token
       
     })
