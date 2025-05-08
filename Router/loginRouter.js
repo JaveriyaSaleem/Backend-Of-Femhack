@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
